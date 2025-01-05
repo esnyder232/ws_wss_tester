@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div class="ws-container">
+			<h2>Websocket Tester</h2>
+			<div class="explain">This is to test websocket connection with various scenarios. Particularly testing if you can make a websocket connection with different origins and SSL, and making sure cookies/sessions work. Most
+				of the responses are in the browser console.
+			</div>
+			<div class="input-container">
+				<span class="input-label">Username: </span>
+				<input type="text" id="name1" value="Miles"/>
+				<span>(Username for the fake chatroom.)</span>
+			</div>
+			<div class="input-container">
+				<span class="input-label">Address: </span>
+				<input type="text" id="addr1" value="localhost"/>
+				<span>(Address of the websocket.)</span>
+			</div>
+			<div class="input-container">
+				<span class="input-label">Port: </span>
+				<input type="text" id="port1" value="7000"/>
+				<span>(Port of the websocket.)</span>
+			</div>
+			<div class="input-container">
+				<span class="input-label">Flow: </span>
+				<input type="radio" id="radio-flow-cookie" name="radio-flow" value="cookie" checked="checked">
+				<label class="input-label" for="radio-flow-cookie">Cookie</label>
+				<input type="radio" id="radio-flow-ticket" name="radio-flow" value="session">
+				<label class="input-label" for="radio-flow-ticket">Ticket</label>				
+				<div>(Cookie: makes a "join-request" api call that sends name and sets a cookie, then makes websocket connection. 
+					Ticket: calls api to get a ticket, then creates websocket connection (sends ticket with Sec-WebSocket-Protocol header hack).)</div>
+			</div>
+			<div class="input-container">
+				<span class="input-label">cookie/ticket port: </span>
+				<input type="text" id="port2" value="7000"/>
+				<span>(Port to post the "join-request" api in cookie flow. Port used to "get-ticket" api in ticket flow.)</span>
+			</div>
+			<div class="input-container">
+				<span class="input-label">Secure: </span>
+				<input type="radio" id="radio-secure-ws" name="radio-secure" value="ws" checked="checked">
+				<label class="input-label" for="radio-secure-ws">ws</label>
+				<input type="radio" id="radio-secure-wss" name="radio-secure" value="wss">
+				<label class="input-label" for="radio-secure-wss">wss</label>
+				<div>(ws: uses ws as protocol. wss: uses wss as protocol (assuming the server has SSL setup).)</div>
+			</div>
+			<div>
+				<input type="button" id="btnConnect"  value="Connect" onclick="connectClick(this)">
+				<input type="button" id="btnDisconnect" disabled value="Disconnect" onclick="disconnectClick(this)">
+				<input type="button" id="btnSend" disabled value="Send" onclick="sendClick(this)">
+				<input type="button" id="btnReport" value="Report" onclick="reportClick(this)">
+			</div>
+		</div>
+	</body>
+
+	<script src="client-js/websocket-handler.js"></script>
+	<script src="client-js/client.js"></script>
+
+</html>

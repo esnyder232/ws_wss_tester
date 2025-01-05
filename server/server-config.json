@@ -1,0 +1,7 @@
+{
+	"https_enabled": false,
+	"cookie_same_site": "Strict",
+	"log_dir_fullpath": "C:\\node_projects\\ws_wss_tester\\logs",
+	"log_level": "debug",
+	"session_cookie_secret": "sdjl,hnfvkdujhvblweuhblkfuhblkf"
+}
