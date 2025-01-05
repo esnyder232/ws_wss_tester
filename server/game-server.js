@@ -217,6 +217,9 @@ class GameServer {
 
 		var t = new Ticket();
 
+		console.log("inside handleGetTicket. req.ip:");
+		console.log(req.ip);
+
 		t.id = this.globalTicketId;
 		t.token = crypto.randomBytes(16).toString('hex');
 		t.ip = req.ip;
@@ -234,6 +237,8 @@ class GameServer {
 		var authResult = new AuthResult();
 
 		try {
+			console.log("inside resolveticket. req.client.remoteAddress:");
+			console.log(req.client.remoteAddress);
 			var tIndex = this.tickets.findIndex((x) => {
 				return x.token == ticket && x.ip == req.client.remoteAddress;
 			});

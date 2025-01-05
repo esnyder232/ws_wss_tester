@@ -14,7 +14,7 @@ const myFormat = printf(({level, message, timestamp}) => {
 })
 
 var myTransport = new transports.DailyRotateFile({
-	filename: 'ws_wss_mix-log_%DATE%.log',
+	filename: 'ws_wss_tester-log_%DATE%.log',
 	datePattern: 'YYYY-MM-DD',
 	zippedArchive: false,
 	dirname: serverConfig.log_dir_fullpath
